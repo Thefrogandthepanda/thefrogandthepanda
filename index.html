@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Frog & The Panda 🐸🐼 Handcrafted Gelatin Art · Escondido, CA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint: #5BAD7A;
+  --mint-light: #C8EDD8;
+  --mint-pale: #F0FAF4;
+  --blush: #E07090;
+  --blush-light: #FADADD;
+  --blush-pale: #FFF3F6;
+  --lav: #9B7EC8;
+  --lav-light: #E0D4F5;
+  --lav-pale: #F8F4FE;
+  --peach: #E8935A;
+  --peach-light: #FDDFC0;
+  --peach-pale: #FFF8F0;
+  --gold: #D4A017;
+  --gold-light: #FFF3B0;
+  --logan: #2A8FC4;
+  --logan-light: #B8E0F5;
+  --logan-pale: #EEF7FD;
+  --ink: #2A2040;
+  --ink-mid: #5A5070;
+  --ink-soft: #9890B0;
+  --cream: #FEFCF8;
+  --warm-white: #FFFDF9;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+font-family: ‘Quicksand’, sans-serif;
+background: #FEFCF8;
+color: #2A2040;
+overflow-x: hidden;
+}
+
+/* ── FLOATING PARTICLES ── */
+.particles {
+position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+pointer-events: none; z-index: 0; overflow: hidden;
+}
+.particle {
+position: absolute; font-size: 18px; opacity: 0;
+animation: drift linear infinite;
+}
+@keyframes drift {
+0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+5%   { opacity: 0.35; }
+95%  { opacity: 0.35; }
+100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+}
+
+/* ── HERO ── */
+.hero {
+min-height: 100vh;
+background: radial-gradient(ellipse at 20% 50%, #D4F5E4 0%, transparent 60%),
+radial-gradient(ellipse at 80% 20%, #FADADD 0%, transparent 55%),
+radial-gradient(ellipse at 60% 80%, #E0D4F5 0%, transparent 50%),
+#FEFCF8;
+display: flex; flex-direction: column; align-items: center; justify-content: center;
+text-align: center; padding: 80px 28px 70px;
+position: relative; overflow: hidden;
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 640px; }
+
+.hero-top-label {
+display: inline-block;
+font-family: ‘Quicksand’, sans-serif;
+font-size: 11px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase;
+color: #E07090; background: #FFF3F6;
+border: 1.5px solid #FADADD;
+padding: 7px 22px; border-radius: 50px; margin-bottom: 28px;
+animation: fadeSlide 0.7s 0.1s ease both;
+}
+
+.hero-emojis {
+font-size: 72px; line-height: 1; margin-bottom: 18px;
+animation: fadeSlide 0.8s 0.2s ease both;
+}
+.e-frog { display: inline-block; animation: frogHop 2.8s ease-in-out infinite; }
+.e-heart { display: inline-block; font-size: 48px; animation: heartPulse 1.4s ease-in-out infinite; margin: 0 8px; }
+.e-panda { display: inline-block; animation: pandaRock 3.2s ease-in-out infinite 0.5s; }
+
+@keyframes frogHop   { 0%,100%{transform:translateY(0)} 40%{transform:translateY(-18px)} }
+@keyframes heartPulse{ 0%,100%{transform:scale(1)}      50%{transform:scale(1.3)} }
+@keyframes pandaRock { 0%,100%{transform:rotate(0)}     40%{transform:rotate(-9deg) scale(1.08)} 70%{transform:rotate(9deg) scale(1.08)} }
+@keyframes fadeSlide { from{transform:translateY(24px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes popIn     { from{transform:scale(0.5);opacity:0} to{transform:scale(1);opacity:1} }
+
+h1.brand-name {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(44px, 10vw, 90px);
+line-height: 1.1; color: #2A2040;
+animation: fadeSlide 0.8s 0.3s ease both;
+margin-bottom: 4px;
+}
+h1.brand-name .g { color: #5BAD7A; }
+h1.brand-name .p { color: #2A8FC4; }
+
+.brand-sub {
+font-family: ‘Dancing Script’, cursive;
+font-size: clamp(18px, 4vw, 28px);
+color: #9B7EC8; margin-bottom: 10px;
+animation: fadeSlide 0.8s 0.4s ease both;
+}
+
+.hero-tagline {
+font-family: ‘Dancing Script’, cursive;
+font-size: clamp(15px, 3vw, 21px);
+color: #E07090; margin-bottom: 24px;
+animation: fadeSlide 0.8s 0.45s ease both;
+}
+
+/* ── ATTENTION HOOK BANNER ── */
+.hero-hook {
+background: linear-gradient(135deg, rgba(91,173,122,0.12), rgba(224,112,144,0.12));
+border: 1.5px solid rgba(91,173,122,0.25);
+border-radius: 18px;
+padding: 16px 22px;
+margin-bottom: 22px;
+animation: fadeSlide 0.8s 0.48s ease both;
+}
+.hero-hook p {
+font-size: 15px;
+font-weight: 700;
+color: #2A2040;
+line-height: 1.7;
+font-style: italic;
+}
+.hero-hook p .hook-stat {
+color: #E07090;
+font-style: normal;
+}
+
+.hero-desc {
+font-size: 16px; line-height: 1.9; color: #5A5070; font-weight: 500;
+margin-bottom: 32px; animation: fadeSlide 0.8s 0.55s ease both;
+}
+.hero-desc strong { color: #2A2040; font-weight: 700; }
+
+.hero-ctas {
+display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+animation: fadeSlide 0.8s 0.65s ease both; margin-bottom: 32px;
+}
+
+.btn {
+display: inline-flex; align-items: center; gap: 7px;
+padding: 13px 26px; border-radius: 50px; font-family: ‘Quicksand’, sans-serif;
+font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;
+transition: transform 0.2s, box-shadow 0.2s; border: none;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.btn-primary {
+background: linear-gradient(135deg, #5BAD7A, #3D9E62);
+color: white; box-shadow: 0 4px 16px rgba(91,173,122,0.35);
+}
+.btn-secondary {
+background: linear-gradient(135deg, #E07090, #C45070);
+color: white; box-shadow: 0 4px 16px rgba(224,112,144,0.35);
+}
+.btn-lav {
+background: linear-gradient(135deg, #9B7EC8, #7A5EAA);
+color: white; box-shadow: 0 4px 16px rgba(155,126,200,0.35);
+}
+.btn-gold {
+background: linear-gradient(135deg, #D4A017, #B88A00);
+color: white; box-shadow: 0 4px 16px rgba(212,160,23,0.4);
+}
+.btn-outline {
+background: white; color: #5A5070; border: 2px solid #C8EDD8;
+}
+
+.hero-pills {
+display: flex; flex-wrap: wrap; gap: 9px; justify-content: center;
+animation: fadeSlide 0.8s 0.75s ease both;
+}
+.pill {
+padding: 6px 16px; border-radius: 30px; font-size: 12px; font-weight: 700;
+border: 1.5px solid transparent;
+}
+.pill-m { background: #F0FAF4;  color: #5BAD7A;  border-color: #C8EDD8; }
+.pill-b { background: #FFF3F6; color: #E07090; border-color: #FADADD; }
+.pill-l { background: #F8F4FE;   color: #9B7EC8;   border-color: #E0D4F5; }
+.pill-p { background: #FFF8F0; color: #E8935A; border-color: #FDDFC0; }
+.pill-g { background: #FFF3B0; color: #D4A017;  border-color: #F0D060; }
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.section { padding: 72px 0 60px; }
+.section-divider { border: none; border-top: 1px solid #EDE8F5; margin: 0; }
+
+.eyebrow {
+font-size: 10px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase;
+margin-bottom: 10px; display: block;
+}
+.em { color: #5BAD7A; } .eb { color: #E07090; }
+.el { color: #9B7EC8; }  .eg { color: #D4A017; }
+
+.section-title {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(28px, 5vw, 46px); line-height: 1.2; margin-bottom: 16px;
+}
+
+.lead { font-size: 16px; color: #5A5070; line-height: 1.9; font-weight: 500; }
+
+/* ── STORY SECTION ── */
+.story-card {
+background: linear-gradient(145deg, #FFF8EE, #FEF0F5 50%, #F0FAF4);
+border-radius: 28px; padding: 48px;
+box-shadow: 0 8px 48px rgba(155,126,200,0.1);
+position: relative; overflow: hidden; margin-top: 32px;
+}
+.story-card::before {
+content: ‘🙏’; position: absolute; top: 20px; right: 28px;
+font-size: 100px; opacity: 0.06; pointer-events: none;
+}
+
+.faith-ribbon {
+display: inline-flex; align-items: center; gap: 8px;
+background: #FFF3B0; color: #D4A017;
+border: 1.5px solid #F0D060; border-radius: 30px;
+padding: 7px 20px; font-size: 12px; font-weight: 700;
+letter-spacing: 1px; margin-bottom: 24px;
+}
+
+.story-text {
+font-size: 16px; line-height: 2.05; color: #5A5070; font-weight: 500;
+}
+.story-text strong { color: #2A2040; font-weight: 700; }
+.story-text .name-mia   { color: #5BAD7A;  font-weight: 700; }
+.story-text .name-logan { color: #2A8FC4; font-weight: 700; }
+.story-text .name-god   { color: #D4A017;  font-weight: 700; }
+
+.story-pull {
+background: white; border-left: 4px solid #D4A017;
+border-radius: 0 16px 16px 0; padding: 20px 24px; margin: 28px 0;
+box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.story-pull p {
+font-family: ‘Playfair Display’, serif;
+font-size: 18px; color: #2A2040; line-height: 1.7; font-style: italic;
+}
+.story-pull .attr { font-family: ‘Quicksand’, sans-serif; font-size: 12px; font-weight: 700; color: #D4A017; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; font-style: normal; }
+
+/* ── AWARENESS ── */
+.awareness-hero {
+background: #2A2040;
+border-radius: 24px; padding: 44px; margin-bottom: 28px;
+text-align: center; position: relative; overflow: hidden;
+}
+.awareness-hero::before { content:‘🦴’; position:absolute; bottom:-18px; left:14px; font-size:110px; opacity:.06; }
+.awareness-hero::after  { content:‘💚’; position:absolute; top:-18px; right:14px; font-size:110px; opacity:.06; }
+.awareness-hero h3 {
+font-family: ‘Playfair Display’, serif; font-size: clamp(22px, 4vw, 36px);
+color: white; margin-bottom: 12px; position: relative; z-index: 1;
+}
+.awareness-hero h3 .g { color: #7EE8A2; } .awareness-hero h3 .p { color: #FFAAC4; }
+.awareness-hero p { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.8; max-width: 560px; margin: 0 auto; position: relative; z-index: 1; font-weight: 500; }
+
+.facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; }
+.fact-card {
+background: white; border-radius: 20px; padding: 26px 22px;
+box-shadow: 0 3px 20px rgba(100,80,180,0.08);
+border-top: 4px solid #5BAD7A;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+.fact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(100,80,180,0.15); }
+.fact-card.bc-b { border-top-color: #E07090; }
+.fact-card.bc-l { border-top-color: #9B7EC8; }
+.fact-card.bc-p { border-top-color: #E8935A; }
+.fact-card.bc-s { border-top-color: #4AADCC; }
+.fact-card.bc-g { border-top-color: #D4A017; }
+.fact-icon  { font-size: 32px; margin-bottom: 12px; }
+.fact-title { font-family: ‘Playfair Display’, serif; font-size: 17px; margin-bottom: 8px; color: #2A2040; }
+.fact-body  { font-size: 13px; color: #5A5070; line-height: 1.75; }
+
+.signs-wrap {
+background: linear-gradient(135deg, #F0FAF4, #F8F4FE);
+border-radius: 22px; padding: 34px; margin-top: 24px;
+}
+.signs-wrap h4 { font-family: ‘Playfair Display’, serif; font-size: 22px; text-align: center; margin-bottom: 20px; }
+.signs-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 10px; }
+.sign-item {
+background: white; border-radius: 12px; padding: 12px 16px;
+font-size: 13px; color: #5A5070; font-weight: 600; line-height: 1.5;
+display: flex; align-items: flex-start; gap: 9px;
+}
+
+.ask-box {
+background: #FFF3F6; border: 2px solid #FADADD;
+border-radius: 18px; padding: 26px 30px; margin-top: 22px; text-align: center;
+}
+.ask-box p { font-size: 15px; font-weight: 600; color: #5A5070; line-height: 1.8; }
+.ask-box strong { color: #E07090; font-size: 17px; display: block; margin-bottom: 6px; font-family: ‘Playfair Display’, serif; }
+
+/* ── MENU ── */
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 32px; }
+.menu-card {
+background: white; border-radius: 22px; overflow: hidden;
+box-shadow: 0 4px 20px rgba(100,80,180,0.09);
+transition: transform 0.2s, box-shadow 0.2s;
+}
+.menu-card:hover { transform: translateY(-7px); box-shadow: 0 14px 36px rgba(100,80,180,0.16); }
+.mc-banner { height: 92px; display: flex; align-items: center; justify-content: center; font-size: 52px; }
+.mc-body { padding: 16px 20px 22px; }
+.mc-tag {
+display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 2px;
+text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 9px;
+}
+.mc-name { font-family: ‘Playfair Display’, serif; font-size: 19px; margin-bottom: 7px; }
+.mc-desc { font-size: 13px; color: #5A5070; line-height: 1.65; margin-bottom: 14px; }
+.mc-price { font-family: ‘Playfair Display’, serif; font-size: 26px; color: #5BAD7A; }
+.mc-note  { font-size: 11px; color: #5BAD7A; font-weight: 700; margin-top: 3px; }
+
+/* ── BUNDLES ── */
+.bundle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-top: 28px; }
+.bundle-card {
+background: linear-gradient(135deg, #F8F4FE, #FFF3F6);
+border: 2px solid #E0D4F5; border-radius: 20px; padding: 26px 22px;
+transition: transform 0.2s;
+}
+.bundle-card:hover { transform: translateY(-5px); }
+.bundle-icon { font-size: 40px; margin-bottom: 12px; }
+.bundle-name { font-family: ‘Playfair Display’, serif; font-size: 19px; margin-bottom: 8px; }
+.bundle-what { font-size: 13px; color: #5A5070; line-height: 1.7; margin-bottom: 14px; }
+.bundle-price { font-family: ‘Playfair Display’, serif; font-size: 24px; color: #9B7EC8; }
+.bundle-save  { font-size: 12px; font-weight: 700; color: #E07090; margin-top: 3px; }
+
+/* ── PROMISE ── */
+.promise-wrap {
+background: #2A2040; border-radius: 28px; padding: 52px 44px;
+text-align: center; position: relative; overflow: hidden; margin-top: 32px;
+}
+.promise-wrap::before { content:‘🐸’; position:absolute; bottom:-24px; left:16px; font-size:130px; opacity:.06; }
+.promise-wrap::after  { content:‘🐼’; position:absolute; top:-24px; right:16px; font-size:130px; opacity:.06; }
+.promise-wrap h3 {
+font-family: ‘Playfair Display’, serif; font-size: clamp(26px,5vw,44px);
+color: white; margin-bottom: 16px; position: relative; z-index: 1;
+}
+.promise-wrap h3 .g { color: #7EE8A2; }
+.promise-wrap p { font-size: 16px; color: rgba(255,255,255,0.78); line-height: 1.9; max-width: 580px; margin: 0 auto 32px; position: relative; z-index: 1; font-weight: 500; }
+.promise-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 14px; position: relative; z-index: 1; }
+.pstat { background: rgba(255,255,255,0.08); border-radius: 16px; padding: 20px 14px; }
+.pstat-val { font-family: ‘Playfair Display’, serif; font-size: 34px; color: white; }
+.pstat-lbl { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 600; margin-top: 4px; }
+
+/* ── ORDER FORM ── */
+.order-section {
+background: linear-gradient(135deg, #F0FAF4, #FFF3F6 60%, #F8F4FE);
+border-radius: 28px; padding: 48px; margin-top: 32px;
+}
+.order-section h3 { font-family: ‘Playfair Display’, serif; font-size: clamp(24px,4vw,36px); margin-bottom: 8px; }
+.order-section .lead { margin-bottom: 32px; }
+
+.order-form { background: white; border-radius: 22px; padding: 36px; box-shadow: 0 4px 24px rgba(100,80,180,0.1); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+@media(max-width: 540px) { .form-grid { grid-template-columns: 1fr; } }
+
+.form-field { display: flex; flex-direction: column; gap: 7px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #9890B0; }
+.form-field input,
+.form-field select,
+.form-field textarea {
+padding: 13px 16px; border: 2px solid #EDE8F5; border-radius: 12px;
+font-family: ‘Quicksand’, sans-serif; font-size: 14px; font-weight: 500; color: #2A2040;
+background: #FEFCF8; outline: none;
+transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+border-color: #5BAD7A; box-shadow: 0 0 0 3px rgba(91,173,122,0.12);
+}
+.form-field textarea { resize: vertical; min-height: 100px; }
+.form-field select { cursor: pointer; }
+
+.form-note {
+background: #FFF3B0; border-left: 4px solid #D4A017;
+border-radius: 0 12px 12px 0; padding: 14px 18px; margin-bottom: 20px;
+font-size: 13px; font-weight: 600; color: #5A5070;
+}
+
+.submit-btn {
+width: 100%; padding: 16px; border: none; border-radius: 14px; cursor: pointer;
+background: linear-gradient(135deg, #5BAD7A, #3D9E62);
+color: white; font-family: ‘Quicksand’, sans-serif; font-size: 16px; font-weight: 700;
+box-shadow: 0 4px 16px rgba(91,173,122,0.3);
+transition: transform 0.2s, box-shadow 0.2s;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,173,122,0.4); }
+
+.timing-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 14px; margin-top: 28px; }
+.timing-card {
+background: white; border-radius: 16px; padding: 20px 18px; text-align: center;
+box-shadow: 0 2px 12px rgba(100,80,180,0.07);
+}
+.timing-card .tc-emoji { font-size: 32px; margin-bottom: 8px; }
+.timing-card .tc-name  { font-family: ‘Playfair Display’, serif; font-size: 15px; margin-bottom: 5px; }
+.timing-card .tc-time  { font-size: 18px; font-weight: 700; color: #5BAD7A; }
+.timing-card .tc-note  { font-size: 11px; color: #9890B0; margin-top: 3px; }
+
+/* ── GOFUNDME ── */
+.gfm-card {
+background: linear-gradient(135deg, #FFF8EE, #FFF3F6);
+border: 2px solid #FDDFC0; border-radius: 24px; padding: 40px;
+text-align: center; margin-top: 32px; position: relative; overflow: hidden;
+}
+.gfm-card::before { content:‘💕’; position:absolute; top:-10px; right:20px; font-size:90px; opacity:.07; }
+.gfm-card h3 { font-family: ‘Playfair Display’, serif; font-size: clamp(22px,4vw,34px); margin-bottom: 12px; }
+.gfm-card p  { font-size: 15px; color: #5A5070; line-height: 1.85; max-width: 560px; margin: 0 auto 24px; font-weight: 500; }
+.gfm-steps { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 28px; }
+.gfm-step { background: white; border-radius: 14px; padding: 16px 18px; min-width: 140px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+.gfm-step-num { font-family: ‘Playfair Display’, serif; font-size: 24px; color: #E8935A; }
+.gfm-step-text { font-size: 12px; font-weight: 600; color: #5A5070; margin-top: 4px; line-height: 1.4; }
+
+/* ── LEARN LINKS ── */
+.learn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 16px; margin-top: 28px; }
+.learn-card {
+background: white; border-radius: 18px; padding: 22px 20px;
+box-shadow: 0 3px 16px rgba(100,80,180,0.08); text-decoration: none; color: #2A2040;
+border-top: 4px solid #5BAD7A; transition: transform 0.2s, box-shadow 0.2s;
+display: block;
+}
+.learn-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(100,80,180,0.14); }
+.learn-card.lc-b { border-top-color: #E07090; }
+.learn-card.lc-l { border-top-color: #9B7EC8; }
+.learn-card.lc-p { border-top-color: #E8935A; }
+.learn-card.lc-g { border-top-color: #D4A017; }
+.lc-platform { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #9890B0; margin-bottom: 8px; }
+.lc-title { font-family: ‘Playfair Display’, serif; font-size: 16px; margin-bottom: 6px; }
+.lc-desc  { font-size: 12px; color: #5A5070; line-height: 1.6; margin-bottom: 12px; }
+.lc-link  { font-size: 12px; font-weight: 700; color: #5BAD7A; word-break: break-all; }
+.learn-card.lc-b .lc-link { color: #E07090; }
+.learn-card.lc-l .lc-link { color: #9B7EC8; }
+.learn-card.lc-p .lc-link { color: #E8935A; }
+.learn-card.lc-g .lc-link { color: #D4A017; }
+
+/* ── PROMOTE ── */
+.promote-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 18px; margin-top: 28px; }
+.promote-card {
+background: white; border-radius: 20px; padding: 26px 22px;
+box-shadow: 0 3px 18px rgba(100,80,180,0.08); transition: transform 0.2s;
+}
+.promote-card:hover { transform: translateY(-5px); }
+.promote-icon { font-size: 38px; margin-bottom: 14px; }
+.promote-platform { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #9890B0; margin-bottom: 6px; }
+.promote-title { font-family: ‘Playfair Display’, serif; font-size: 18px; margin-bottom: 10px; }
+.promote-body { font-size: 13px; color: #5A5070; line-height: 1.75; }
+
+/* ── CAPTIONS ── */
+.caption-box {
+background: white; border-left: 4px solid #5BAD7A;
+border-radius: 0 18px 18px 0; padding: 22px 26px; margin: 16px 0;
+box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.caption-box.cb-b { border-left-color: #E07090; }
+.caption-box.cb-l { border-left-color: #9B7EC8; }
+.caption-box.cb-g { border-left-color: #D4A017; }
+.cap-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #9890B0; margin-bottom: 12px; }
+.cap-text  { font-size: 14px; color: #5A5070; line-height: 1.85; font-style: italic; }
+
+/* ── INSTAGRAM GUIDE ── */
+.ig-answer {
+background: linear-gradient(135deg, #FFF3F6, #F0FAF4);
+border-radius: 22px; padding: 34px; margin-top: 28px;
+}
+.ig-answer h4 { font-family: ‘Playfair Display’, serif; font-size: 22px; margin-bottom: 16px; }
+.ig-answer p  { font-size: 15px; color: #5A5070; line-height: 1.85; font-weight: 500; margin-bottom: 12px; }
+.ig-answer strong { color: #2A2040; }
+
+/* ── FOOTER ── */
+.footer {
+background: linear-gradient(150deg, #F0FAF4, #FFF3F6, #F8F4FE);
+text-align: center; padding: 60px 28px 48px;
+border-top: 1px solid #EDE8F5;
+}
+.footer-emojis { font-size: 48px; margin-bottom: 14px; }
+.footer h2 { font-family: ‘Playfair Display’, serif; font-size: 32px; color: #2A2040; margin-bottom: 8px; }
+.footer .tagline { font-family: ‘Dancing Script’, cursive; font-size: 22px; color: #E07090; margin-bottom: 8px; }
+.footer p { font-size: 14px; color: #9890B0; font-weight: 500; line-height: 1.8; }
+.footer-badge {
+display: inline-block; background: #FFF3B0; color: #D4A017;
+border: 2px solid #F0D060; padding: 10px 28px; border-radius: 30px;
+font-weight: 700; font-size: 14px; margin-top: 20px;
+}
+
+/* ── MODAL CONFIRMATION ── */
+.modal-overlay {
+display: none; position: fixed; inset: 0; background: rgba(42,32,64,0.6);
+z-index: 1000; align-items: center; justify-content: center; padding: 24px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+background: white; border-radius: 24px; padding: 44px; max-width: 480px; width: 100%;
+text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+.modal h3 { font-family: ‘Playfair Display’, serif; font-size: 28px; margin-bottom: 12px; }
+.modal p  { font-size: 15px; color: #5A5070; line-height: 1.8; margin-bottom: 24px; }
+.modal .emoji-big { font-size: 56px; margin-bottom: 16px; }
+
+/* SMOOTH SCROLL NAV */
+.sticky-nav {
+position: sticky; top: 0; z-index: 100; background: rgba(254,252,248,0.92);
+backdrop-filter: blur(12px); border-bottom: 1px solid rgba(237,232,245,0.6);
+padding: 12px 24px; display: flex; align-items: center; justify-content: center;
+gap: 6px; flex-wrap: wrap;
+}
+.nav-link {
+font-size: 12px; font-weight: 700; color: #5A5070; text-decoration: none;
+padding: 6px 14px; border-radius: 20px; transition: background 0.2s, color 0.2s;
+}
+.nav-link:hover { background: #F0FAF4; color: #5BAD7A; }
+
+@media(max-width:580px){
+.hero-emojis { font-size: 58px; }
+.story-card { padding: 28px 22px; }
+.order-section { padding: 28px 20px; }
+.order-form { padding: 24px 18px; }
+.promise-wrap { padding: 34px 22px; }
+.gfm-card { padding: 28px 22px; }
+.sticky-nav { display: none; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- PARTICLES -->
+
+<div class="particles" id="particles"></div>
+
+<!-- MODAL -->
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="emoji-big">🐸🩷🐼</div>
+    <h3>Order Request Sent!</h3>
+    <p>Thank you so much for supporting Mia and Logan's treatments. We will reach out within 24 hours to confirm your order details, timing, and pickup arrangement. Every cup you buy makes a real difference. 💕</p>
+    <button class="btn btn-primary" onclick="document.getElementById('modal').classList.remove('open')">
+      💕 Thank you!
+    </button>
+  </div>
+</div>
+
+<!-- NAV -->
+
+<nav class="sticky-nav">
+  <a class="nav-link" href="#story">Our Story</a>
+  <a class="nav-link" href="#awareness">Scoliosis Awareness</a>
+  <a class="nav-link" href="#menu">Menu</a>
+  <a class="nav-link" href="#order">Order</a>
+  <a class="nav-link" href="#gofundme">GoFundMe</a>
+</nav>
+
+<!-- ── HERO ── -->
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-top-label">🍮 Handcrafted Gelatin Art · Escondido, CA</div>
+    <div class="hero-emojis">
+      <span class="e-frog">🐸</span>
+      <span class="e-heart">🩷</span>
+      <span class="e-panda">🐼</span>
+    </div>
+    <h1 class="brand-name">The <span class="g">Frog</span> &<br>The <span class="p">Panda</span></h1>
+    <div class="brand-sub">Mia & Logan 💕</div>
+    <div class="hero-tagline">"Sweet art. Real love. One cup at a time."</div>
+
+<!-- WARM STORY-DRIVEN HOOK -->
+<div class="hero-hook">
+  <p>
+    🐸 <em>She never complained once. She never showed a single sign. And yet there it was — hiding quietly, waiting to be found.</em>
+    <span class="hook-stat"> This is the story of how a brother's courage changed everything.</span>
+  </p>
+</div>
+
+<p class="hero-desc">
+  Beautiful handcrafted gelatin art made by a mama in Escondido, fueled by faith and love for her two inseparable children.
+  <strong>100% of every sale goes directly to Mia and Logan's care. Every cup you buy is a real act of love.</strong> 🙏
+</p>
+<div class="hero-ctas">
+  <a href="#order" class="btn btn-primary">🍮 Place an Order</a>
+  <a href="#story" class="btn btn-secondary">🐸 Our Story</a>
+  <a href="#gofundme" class="btn btn-gold">💕 GoFundMe</a>
+  <a href="https://instagram.com/thefrogandthepanda" target="_blank" class="btn btn-lav">📱 Instagram</a>
+</div>
+<div class="hero-pills">
+  <span class="pill pill-m">🍮 Handcrafted Gelatin</span>
+  <span class="pill pill-b">💕 100% to Mia's Care</span>
+  <span class="pill pill-g">🙏 Through God's Guidance</span>
+  <span class="pill pill-l">🐸🐼 Mia & Logan</span>
+  <span class="pill pill-p">📍 Escondido, CA</span>
+</div>
+
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- ── OUR STORY ── -->
+
+  <section class="section" id="story">
+    <span class="eyebrow eb">Our story</span>
+    <h2 class="section-title">How <em>Everything</em> Changed</h2>
+    <p class="lead">A family that felt completely fine. A brother who spoke up. A mama who listened. And God's hand guiding every step.</p>
+
+<div class="story-card">
+  <div class="faith-ribbon">🙏 Through God's Guidance</div>
+
+  <p class="story-text">
+    My daughter <span class="name-mia">Mia</span> is 10 years old. She loves frogs more than anything in the world, her favorite color is green, and she has this gift of making every person around her feel instantly loved. 🐸💚
+  </p>
+  <br>
+  <p class="story-text">
+    Her little brother <span class="name-logan">Logan</span> is 8. He is panda-crazy, soccer-obsessed, and Mia's absolute best friend in the entire world. Only 18 months apart, these two are completely inseparable. ⚽🐼
+  </p>
+  <br>
+  <p class="story-text">
+    We all felt fine. Mia looked perfectly healthy. There was truly nothing to worry about or so we thought. It was <span class="name-god">God's guidance</span> that placed it on my heart to take our whole family for a thorough health examination, one that went beyond what our regular doctors had ever offered us.
+  </p>
+  <br>
+  <p class="story-text">
+    It was <span class="name-logan">Logan</span> who opened the door for all of us. All that time playing soccer, the sport he loves with everything he has, had left him with aches and pains in his bones that I eventually had looked at more closely. What I discovered was that those pains were not normal, and Logan has his own health journey we are walking through as well. He is okay, but he needs care too, and finding that out sent us down a path that changed our family forever.
+  </p>
+  <br>
+  <p class="story-text">
+    Because on that same journey, through that same deeper examination, we found what was hiding silently inside <span class="name-mia">Mia</span>: <strong>scoliosis</strong>, a sideways curve developing in her spine, quietly and completely without symptoms. She never complained once. She never showed a single sign. And yet there it was.
+  </p>
+
+  <div class="story-pull">
+    <p>"If Logan had not spoken up about his pain, if I had not listened, if God had not nudged me to look further outside of regular medicine, we would never have known. Mia looked perfectly healthy. That is exactly what makes this so important to share."</p>
+    <div class="attr">— Mia & Logan's Mama 🐸🐼</div>
+  </div>
+
+  <p class="story-text">
+    It was scary at first. It still is some days. But I am deeply grateful we found it now, while she is still growing and while there is still a real window to act. <strong>Regular doctors would not do anything at this stage.</strong> They wait until a condition becomes severe before they intervene, and by then, for a growing girl, the options narrow fast.
+  </p>
+  <br>
+  <p class="story-text">
+    <span class="name-mia">Mia</span> is not in the clear. This can progress. The window to correct as much as possible, before she becomes an adult, is right now. Every treatment she receives today is a gift to her future self.
+  </p>
+  <br>
+  <p class="story-text">
+    So I started making <strong>handcrafted gelatin art</strong>, because my babies need care, and because every single dollar from every single cup goes directly to their treatment. No exceptions. This is a mama doing whatever it takes. 💕
+  </p>
+</div>
+
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── AWARENESS ── -->
+
+  <section class="section" id="awareness">
+    <span class="eyebrow" style="color:#4AADCC;">🦴 Scoliosis Awareness</span>
+    <h2 class="section-title">What Every Parent Should Know</h2>
+    <p class="lead">Mia's story is happening quietly in families everywhere, with no symptoms, no warning, and no obvious signs. We share this not to alarm you but to encourage you to ask the questions that routine checkups often skip.</p>
+
+<div class="awareness-hero">
+  <h3>A <span class="g">Bone Condition</span> That Hides in <span class="p">Plain Sight</span></h3>
+  <p>Scoliosis is a sideways curve of the spine, shaped like a C or S, that most often develops silently during childhood growth spurts with no pain and no visible signs until it has already progressed further than it needed to.</p>
+</div>
+
+<div class="facts-grid">
+  <div class="fact-card">
+    <div class="fact-icon">😶</div>
+    <div class="fact-title">Most Children Have Zero Symptoms</div>
+    <div class="fact-body">The majority of children with scoliosis feel completely fine and have no pain at all. Families often only discover it by chance during a thorough exam. Your child can look and feel perfectly healthy and still have a developing spinal curve.</div>
+  </div>
+  <div class="fact-card bc-b">
+    <div class="fact-icon">👧</div>
+    <div class="fact-title">Teen Girls Are at Highest Risk</div>
+    <div class="fact-body">Girls are significantly more likely to develop curves that worsen and require treatment. The growth spurt years, roughly ages 9 to 14, are the highest risk window. Curves can progress very quickly during this period especially without monitoring.</div>
+  </div>
+  <div class="fact-card bc-l">
+    <div class="fact-icon">📈</div>
+    <div class="fact-title">It Can Progress Quickly During Growth</div>
+    <div class="fact-body">Children grow fast and a spine curve can worsen just as fast. A small curve today can become significantly larger before the next school year if it is not being watched. The earlier it is found, the more options a family has.</div>
+  </div>
+  <div class="fact-card bc-p">
+    <div class="fact-icon">⏰</div>
+    <div class="fact-title">Early Detection Changes Everything</div>
+    <div class="fact-body">Catching it early gives families the most treatment options including non-surgical approaches like specialized chiropractic care. Waiting until it becomes severe, as many standard doctors recommend, dramatically reduces what can be done without major medical intervention.</div>
+  </div>
+  <div class="fact-card bc-s">
+    <div class="fact-icon">🏥</div>
+    <div class="fact-title">Standard Checkups Often Miss It</div>
+    <div class="fact-body">Regular pediatric checkups do not always include a thorough scoliosis screening. Many families only discover it when they seek a more comprehensive exam outside of routine medical appointments. You may need to ask, seek, and advocate for your child.</div>
+  </div>
+  <div class="fact-card bc-g">
+    <div class="fact-icon">💪</div>
+    <div class="fact-title">Caught Early, There Is Real Hope</div>
+    <div class="fact-body">With early treatment and consistent monitoring, many children see significant improvement before they finish growing. Finding it in time, like Mia's story, is truly a gift. Proactive treatment during the growth years is the most powerful window there is.</div>
+  </div>
+</div>
+
+<div class="signs-wrap">
+  <h4>👀 Signs to Look For in Your Child</h4>
+  <div class="signs-list">
+    <div class="sign-item">👀 One shoulder sitting higher than the other</div>
+    <div class="sign-item">👀 One shoulder blade sticking out more</div>
+    <div class="sign-item">👀 One hip appearing higher or more prominent</div>
+    <div class="sign-item">👀 Clothes hanging unevenly on their body</div>
+    <div class="sign-item">👀 A visible lean to one side when standing</div>
+    <div class="sign-item">👀 Head not appearing centered over the pelvis</div>
+    <div class="sign-item">👀 Bone or back pain especially in active kids</div>
+    <div class="sign-item">👀 Fatigue after sitting or standing for a while</div>
+  </div>
+</div>
+
+<div class="ask-box">
+  <strong>🙏 If Mia's story resonates with you, please ask your doctor for a scoliosis screening.</strong>
+  <p>Do not wait for symptoms. Do not wait until something looks obviously wrong. Seek a thorough examination, consider specialists outside of standard medicine, and always trust your instincts as a parent. Catching it early can truly change everything.</p>
+</div>
+
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── MENU ── -->
+
+  <section class="section" id="menu">
+    <span class="eyebrow el">What we make</span>
+    <h2 class="section-title">Our Handcrafted Menu</h2>
+    <p class="lead">Every cup is made fresh by hand in Escondido. Every dollar goes to Mia and Logan's ongoing treatments. Mia's care is our most pressing need right now, and Logan is on his own healing journey too. Every cup you buy matters.</p>
+
+<div class="menu-grid">
+  <div class="menu-card">
+    <div class="mc-banner" style="background:linear-gradient(135deg,#C8EDD8,#FADADD);">🌹</div>
+    <div class="mc-body">
+      <span class="mc-tag" style="background:#FFF3F6;color:#E07090;">🔥 Most Popular</span>
+      <div class="mc-name">3D Flower Cup</div>
+      <div class="mc-desc">Roses and daisies injected petal by petal inside clear gelatin. Absolutely stunning and truly one of a kind.</div>
+      <div class="mc-price">$12 -$15</div>
+      <div class="mc-note">💕 100% to Mia's care</div>
+    </div>
+  </div>
+  <div class="menu-card">
+    <div class="mc-banner" style="background:linear-gradient(135deg,#E0D4F5,#FDDFC0);">🔮</div>
+    <div class="mc-body">
+      <span class="mc-tag" style="background:#F8F4FE;color:#9B7EC8;">📱 Goes Viral</span>
+      <div class="mc-name">Mosaic Cup</div>
+      <div class="mc-desc">Colorful Jello chunks floating in a creamy white base. The broken glass effect looks breathtaking in person and even better on camera.</div>
+      <div class="mc-price">$12 -$16</div>
+      <div class="mc-note">💕 100% to Mia's care</div>
+    </div>
+  </div>
+  <div class="menu-card">
+    <div class="mc-banner" style="background:linear-gradient(135deg,#C8EDD8,#FFF8E8);">🌈</div>
+    <div class="mc-body">
+      <span class="mc-tag" style="background:#F0FAF4;color:#5BAD7A;">✅ Kids Love It</span>
+      <div class="mc-name">Rainbow Layer Cup</div>
+      <div class="mc-desc">Beautiful stacked color layers poured one by one. Bright, cheerful, and loved by absolutely everyone.</div>
+      <div class="mc-price">$8 -$12</div>
+      <div class="mc-note">💕 100% to Mia's care</div>
+    </div>
+  </div>
+  <div class="menu-card">
+    <div class="mc-banner" style="background:linear-gradient(135deg,#FDDFC0,#C8EDD8);">🍓</div>
+    <div class="mc-body">
+      <span class="mc-tag" style="background:#FFF8F0;color:#E8935A;">🐸 Mia's Favorite</span>
+      <div class="mc-name">Mia's Fruit Frog Cup</div>
+      <div class="mc-desc">Fresh mango, strawberry and kiwi suspended in bright lime green gelatin, Mia's favorite color. A colorful cup inspired by her love of all things green and her favorite little frog.</div>
+      <div class="mc-price">$10 -$14</div>
+      <div class="mc-note">💕 100% to Mia's care</div>
+    </div>
+  </div>
+  <div class="menu-card">
+    <div class="mc-banner" style="background:linear-gradient(135deg,#C8EDD8,#E0D4F5);">🐸🐼</div>
+    <div class="mc-body">
+      <span class="mc-tag" style="background:#F0FAF4;color:#5BAD7A;">💕 Best Gift</span>
+      <div class="mc-name">Mia & Logan Duo Set</div>
+      <div class="mc-desc">One frog themed cup for Mia and one panda themed cup for Logan, gift packaged together with ribbon and their story card.</div>
+      <div class="mc-price">$22 -$28</div>
+      <div class="mc-note">💕 100% to Mia & Logan's care</div>
+    </div>
+  </div>
+  <div class="menu-card">
+    <div class="mc-banner" style="background:linear-gradient(135deg,#E0D4F5,#FADADD);">🎂</div>
+    <div class="mc-body">
+      <span class="mc-tag" style="background:#F8F4FE;color:#9B7EC8;">💰 Biggest Impact</span>
+      <div class="mc-name">Party Slab</div>
+      <div class="mc-desc">Large rectangle mold packed with 3D flower injections in your custom color theme. Perfect for birthdays, showers and quinceañeras.</div>
+      <div class="mc-price">$30 -$45</div>
+      <div class="mc-note">💕 100% to Mia & Logan's care</div>
+    </div>
+  </div>
+</div>
+
+<div class="bundle-grid" style="margin-top:36px;">
+  <div>
+    <span class="eyebrow em" style="display:block;margin-bottom:12px;">Save more, give more</span>
+    <h3 class="section-title" style="font-size:clamp(22px,4vw,34px);">Gift Bundles</h3>
+  </div>
+</div>
+<div class="bundle-grid">
+  <div class="bundle-card">
+    <div class="bundle-icon">🌹🌹🌹</div>
+    <div class="bundle-name">The Trio Box</div>
+    <div class="bundle-what">3 Flower Cups of your choice packaged in a pastel gift box with ribbon and their story card inside</div>
+    <div class="bundle-price">$32</div>
+    <div class="bundle-save">Save $7 vs buying separately 💕</div>
+  </div>
+  <div class="bundle-card">
+    <div class="bundle-icon">🌈🌹🔮</div>
+    <div class="bundle-name">The Sampler Set</div>
+    <div class="bundle-what">One Rainbow Cup, one Flower Cup, and one Mosaic Cup. The perfect way to try everything</div>
+    <div class="bundle-price">$30</div>
+    <div class="bundle-save">Save $5 vs buying separately 💕</div>
+  </div>
+  <div class="bundle-card">
+    <div class="bundle-icon">🎂🌹🌹</div>
+    <div class="bundle-name">The Party Bundle</div>
+    <div class="bundle-what">One Party Slab and two Flower Cups. Ideal for birthday tables, baby showers, and quinceañeras</div>
+    <div class="bundle-price">$52</div>
+    <div class="bundle-save">Save $8 vs buying separately 💕</div>
+  </div>
+  <div class="bundle-card">
+    <div class="bundle-icon">🐸🐼💕</div>
+    <div class="bundle-name">The Family Box</div>
+    <div class="bundle-what">4 cups, mix of frog and panda themed, gift wrapped with Mia and Logan's full story card tucked inside</div>
+    <div class="bundle-price">$42</div>
+    <div class="bundle-save">Most meaningful gift of all 💕</div>
+  </div>
+</div>
+
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── PROMISE ── -->
+
+  <section class="section">
+    <span class="eyebrow em">Our commitment</span>
+    <h2 class="section-title">100% of Every Sale Goes to Their Care</h2>
+    <div class="promise-wrap">
+      <h3>Every. Single. <span class="g">Dollar.</span></h3>
+      <p>This is not a business built for profit. It is a mama making something beautiful so her children can get the care they need. Every cup sold, every slab ordered, every bundle gifted goes to Mia and Logan's treatments. Mia's ongoing care is the most urgent need right now, and Logan is walking his own health journey alongside her. No overhead taken. No exceptions. Just love turned into art turned into healing.</p>
+      <div class="promise-stats">
+        <div class="pstat"><div class="pstat-val">100%</div><div class="pstat-lbl">to Mia &amp; Logan's care</div></div>
+        <div class="pstat"><div class="pstat-val">🍮</div><div class="pstat-lbl">truly handmade by mama</div></div>
+        <div class="pstat"><div class="pstat-val">🙏</div><div class="pstat-lbl">guided by faith every step</div></div>
+        <div class="pstat"><div class="pstat-val">💕</div><div class="pstat-lbl">made with real love</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── ORDER ── -->
+
+  <section class="section" id="order">
+    <span class="eyebrow eb">Ready to help?</span>
+    <h2 class="section-title">Place Your Order</h2>
+    <p class="lead">Fill out the form below and we will get back to you within 24 hours to confirm your order, discuss any custom requests, and arrange your pickup here in Escondido. Every order is made fresh just for you.</p>
+
+<div class="order-section">
+  <h3>Order Request Form 🍮</h3>
+  <p class="lead">Tell us what you would like and we will take it from there.</p>
+
+  <div class="order-form">
+    <div class="form-note">
+      📍 <strong>Local Escondido pickup only</strong> at this time. We also offer local delivery within the area. Orders are made fresh and typically ready within 1 to 3 days depending on the product. We will confirm exact timing when we reach out.
+    </div>
+
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <div class="form-grid">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" placeholder="First and last name" required>
+        </div>
+        <div class="form-field">
+          <label>Phone or Instagram</label>
+          <input type="text" placeholder="Best way to reach you" required>
+        </div>
+        <div class="form-field">
+          <label>What Would You Like?</label>
+          <select required>
+            <option value="">Choose a product</option>
+            <option>🌹 3D Flower Cup ($12-$15)</option>
+            <option>🔮 Mosaic Cup ($12-$16)</option>
+            <option>🌈 Rainbow Layer Cup ($8-$12)</option>
+            <option>🍓 Mia's Fruit Frog Cup ($10-$14)</option>
+            <option>🐸🐼 Mia & Logan Duo Set ($22-$28)</option>
+            <option>🎂 Party Slab ($30-$45)</option>
+            <option>🌹🌹🌹 Trio Box Bundle ($32)</option>
+            <option>🌈🌹🔮 Sampler Set Bundle ($30)</option>
+            <option>🎂🌹 Party Bundle ($52)</option>
+            <option>🐸🐼💕 Family Box Bundle ($42)</option>
+            <option>Multiple items (I'll explain below)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>How Many?</label>
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4 to 6</option>
+            <option>7 to 10</option>
+            <option>More than 10 (let's chat)</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Preferred Pickup Timeframe</label>
+          <select>
+            <option>As soon as possible (1 to 2 days)</option>
+            <option>This weekend</option>
+            <option>Next week</option>
+            <option>I have a specific date (mention below)</option>
+            <option>Flexible, no rush</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Color Preference (Optional)</label>
+          <input type="text" placeholder="e.g. pink and lavender, rainbow, custom theme">
+        </div>
+        <div class="form-field full">
+          <label>Any Special Requests or Notes?</label>
+          <textarea placeholder="Tell us anything! Custom colors, event name on slab, gift message for story card, delivery request, etc."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">
+        Send My Order Request 🍮💕
+      </button>
+    </form>
+  </div>
+
+  <h4 style="font-family:'Playfair Display',serif;font-size:20px;margin-top:36px;margin-bottom:16px;">How Long Will It Take?</h4>
+  <div class="timing-cards">
+    <div class="timing-card">
+      <div class="tc-emoji">🌈</div>
+      <div class="tc-name">Rainbow Layer Cup</div>
+      <div class="tc-time">Same Day</div>
+      <div class="tc-note">Order by noon, ready by evening</div>
+    </div>
+    <div class="timing-card">
+      <div class="tc-emoji">🔮</div>
+      <div class="tc-name">Mosaic Cup</div>
+      <div class="tc-time">1 Day</div>
+      <div class="tc-note">Ready by next morning</div>
+    </div>
+    <div class="timing-card">
+      <div class="tc-emoji">🍓</div>
+      <div class="tc-name">Fruit Frog Cup</div>
+      <div class="tc-time">1 Day</div>
+      <div class="tc-note">Ready by next morning</div>
+    </div>
+    <div class="timing-card">
+      <div class="tc-emoji">🌹</div>
+      <div class="tc-name">3D Flower Cup</div>
+      <div class="tc-time">1 to 2 Days</div>
+      <div class="tc-note">Flowers injected fresh</div>
+    </div>
+    <div class="timing-card">
+      <div class="tc-emoji">🐸🐼</div>
+      <div class="tc-name">Duo Set & Bundles</div>
+      <div class="tc-time">2 Days</div>
+      <div class="tc-note">Gift packaged with love</div>
+    </div>
+    <div class="timing-card">
+      <div class="tc-emoji">🎂</div>
+      <div class="tc-name">Party Slab</div>
+      <div class="tc-time">2 to 3 Days</div>
+      <div class="tc-note">Order early for events!</div>
+    </div>
+  </div>
+
+  <div style="background:white;border-radius:18px;padding:24px;margin-top:22px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+    <p style="font-size:15px;color:#5A5070;font-weight:600;line-height:1.8;">
+      <strong style="color:#2A2040;">Prefer to order directly?</strong><br>
+      DM us on Instagram or TikTok at <strong style="color:#5BAD7A;">@thefrogandthepanda</strong><br>
+      Pay via <strong>Venmo · Zelle · Cash App · Cash on pickup</strong>
+    </p>
+  </div>
+</div>
+
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── GOFUNDME ── -->
+
+  <section class="section" id="gofundme">
+    <span class="eyebrow eg">💕 GoFundMe</span>
+    <h2 class="section-title">Want to Help Without Ordering?</h2>
+    <p class="lead">Some people want to contribute directly to Mia and Logan's care without receiving a product. GoFundMe makes that possible and every single dollar goes to their treatments.</p>
+
+<div class="gfm-card">
+  <div style="font-size:52px;margin-bottom:16px;">💕🙏💕</div>
+  <h3>Mia & Logan's Treatment Fund</h3>
+  <p>If you feel called to give directly, our GoFundMe page is the place to do it. Share it with your friends, your family, your church community, your neighborhood groups. Every share is as powerful as a donation. This is a family walking a real journey and your generosity means more than we can put into words.</p>
+  <div class="gfm-steps">
+    <div class="gfm-step">
+      <div class="gfm-step-num">1️⃣</div>
+      <div class="gfm-step-text">Go to GoFundMe.com and search "The Frog and The Panda Mia Logan"</div>
+    </div>
+    <div class="gfm-step">
+      <div class="gfm-step-num">2️⃣</div>
+      <div class="gfm-step-text">Read Mia and Logan's full story on the page</div>
+    </div>
+    <div class="gfm-step">
+      <div class="gfm-step-num">3️⃣</div>
+      <div class="gfm-step-text">Donate any amount or simply share the link</div>
+    </div>
+    <div class="gfm-step">
+      <div class="gfm-step-num">4️⃣</div>
+      <div class="gfm-step-text">Share to Facebook, WhatsApp, Instagram, and your church group</div>
+    </div>
+  </div>
+  <a href="https://www.gofundme.com" target="_blank" class="btn btn-gold" style="font-size:16px;padding:15px 36px;">
+    💕 Visit Our GoFundMe Page
+  </a>
+  <p style="margin-top:18px;font-size:13px;color:#9890B0;font-weight:500;">
+    Once your GoFundMe is live, update this link with your actual campaign URL.
+  </p>
+</div>
+
+  </section>
+
+  <hr class="section-divider">
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+  <div class="footer-emojis">🐸 🩷 🐼</div>
+  <h2>The Frog & The Panda</h2>
+  <div class="tagline">"Sweet art. Real love. One cup at a time."</div>
+  <p>Handmade in Escondido, California<br>
+  Follow us at <strong>@thefrogandthepanda</strong> on Instagram and TikTok<br>
+  <em>Through God's guidance, for Mia and Logan 🙏</em></p>
+  <div class="footer-badge">💕 100% of Every Sale Goes to Their Care</div>
+</footer>
+
+<script>
+// Particles
+(function() {
+  const container = document.getElementById('particles');
+  const emojis = ['🐸','🐼','💕','🌸','🍮','🌿','💚','🩷','⚽','✨','🙏','🌺'];
+  emojis.forEach(function(e) {
+    for (let j = 0; j < 2; j++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.textContent = e;
+      p.style.cssText = 'font-size:' + (Math.random()*12+12) + 'px;left:' + (Math.random()*100) + '%;animation-duration:' + (Math.random()*16+12) + 's;animation-delay:' + (Math.random()*16) + 's;';
+      container.appendChild(p);
+    }
+  });
+})();
+
+// Order form
+function submitOrder(e) {
+  e.preventDefault();
+  document.getElementById('modal').classList.add('open');
+  e.target.reset();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owner Dashboard 🐸🐼 The Frog & The Panda</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mint: #5BAD7A; --mint-light: #C8EDD8; --mint-pale: #F0FAF4;
+  --blush: #E07090; --blush-light: #FADADD; --blush-pale: #FFF3F6;
+  --lav: #9B7EC8; --lav-light: #E0D4F5; --lav-pale: #F8F4FE;
+  --peach: #E8935A; --peach-light: #FDDFC0; --peach-pale: #FFF8F0;
+  --gold: #D4A017; --gold-light: #FFF3B0;
+  --logan: #2A8FC4; --logan-light: #B8E0F5; --logan-pale: #EEF7FD;
+  --ink: #2A2040; --ink-mid: #5A5070; --ink-soft: #9890B0;
+  --cream: #FEFCF8; --warm-white: #FFFDF9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Quicksand', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+/* PASSWORD SCREEN */
+#password-screen {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(ellipse at 30% 50%, #C8EDD8 0%, transparent 55%),
+              radial-gradient(ellipse at 70% 30%, #FADADD 0%, transparent 50%), #FEFCF8;
+  padding: 24px;
+}
+.pw-card {
+  background: white; border-radius: 28px; padding: 52px 44px; max-width: 440px; width: 100%;
+  text-align: center; box-shadow: 0 8px 48px rgba(100,80,180,0.12);
+}
+.pw-emoji { font-size: 64px; margin-bottom: 16px; }
+.pw-card h2 { font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 8px; }
+.pw-card p { font-size: 14px; color: var(--ink-mid); margin-bottom: 28px; font-weight: 500; }
+.pw-input {
+  width: 100%; padding: 14px 18px; border: 2px solid #EDE8F5; border-radius: 14px;
+  font-family: 'Quicksand', sans-serif; font-size: 16px; font-weight: 600; color: var(--ink);
+  background: var(--cream); outline: none; margin-bottom: 14px; text-align: center; letter-spacing: 2px;
+  transition: border-color 0.2s;
+}
+.pw-input:focus { border-color: var(--mint); }
+.pw-btn {
+  width: 100%; padding: 14px; border: none; border-radius: 14px; cursor: pointer;
+  background: linear-gradient(135deg, var(--mint), #3D9E62);
+  color: white; font-family: 'Quicksand', sans-serif; font-size: 16px; font-weight: 700;
+  box-shadow: 0 4px 16px rgba(91,173,122,0.3); transition: transform 0.2s;
+}
+.pw-btn:hover { transform: translateY(-2px); }
+.pw-error { color: var(--blush); font-size: 13px; font-weight: 700; margin-top: 10px; display: none; }
+
+#owner-content { display: none; }
+
+/* OWNER HEADER */
+.owner-header {
+  background: var(--ink); padding: 28px 24px; text-align: center;
+  position: sticky; top: 0; z-index: 100;
+}
+.owner-header h1 { font-family: 'Playfair Display', serif; color: white; font-size: 22px; }
+.owner-header p { color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 4px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+
+/* SHARED LAYOUT STYLES */
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.section { padding: 72px 0 60px; }
+.section-divider { border: none; border-top: 1px solid #EDE8F5; margin: 0; }
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+.em { color: var(--mint); } .eb { color: var(--blush); } .el { color: var(--lav); } .eg { color: var(--gold); }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 46px); line-height: 1.2; margin-bottom: 16px; }
+.lead { font-size: 16px; color: var(--ink-mid); line-height: 1.9; font-weight: 500; }
+
+/* LEARN LINKS */
+.learn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 16px; margin-top: 28px; }
+.learn-card { background: white; border-radius: 18px; padding: 22px 20px; box-shadow: 0 3px 16px rgba(100,80,180,0.08); text-decoration: none; color: var(--ink); border-top: 4px solid var(--mint); transition: transform 0.2s, box-shadow 0.2s; display: block; }
+.learn-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(100,80,180,0.14); }
+.learn-card.lc-b { border-top-color: var(--blush); } .learn-card.lc-l { border-top-color: var(--lav); } .learn-card.lc-p { border-top-color: var(--peach); } .learn-card.lc-g { border-top-color: var(--gold); }
+.lc-platform { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+.lc-title { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 6px; }
+.lc-desc  { font-size: 12px; color: var(--ink-mid); line-height: 1.6; margin-bottom: 12px; }
+.lc-link  { font-size: 12px; font-weight: 700; color: var(--mint); word-break: break-all; }
+.learn-card.lc-b .lc-link { color: var(--blush); } .learn-card.lc-l .lc-link { color: var(--lav); } .learn-card.lc-p .lc-link { color: var(--peach); } .learn-card.lc-g .lc-link { color: var(--gold); }
+
+/* PROMOTE */
+.promote-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 18px; margin-top: 28px; }
+.promote-card { background: white; border-radius: 20px; padding: 26px 22px; box-shadow: 0 3px 18px rgba(100,80,180,0.08); transition: transform 0.2s; }
+.promote-card:hover { transform: translateY(-5px); }
+.promote-icon { font-size: 38px; margin-bottom: 14px; }
+.promote-platform { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
+.promote-title { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 10px; }
+.promote-body { font-size: 13px; color: var(--ink-mid); line-height: 1.75; }
+
+/* CAPTIONS */
+.caption-box { background: white; border-left: 4px solid var(--mint); border-radius: 0 18px 18px 0; padding: 22px 26px; margin: 16px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.caption-box.cb-b { border-left-color: var(--blush); } .caption-box.cb-l { border-left-color: var(--lav); } .caption-box.cb-g { border-left-color: var(--gold); }
+.cap-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 12px; }
+.cap-text  { font-size: 14px; color: var(--ink-mid); line-height: 1.85; font-style: italic; }
+
+/* IG GUIDE */
+.ig-answer { background: linear-gradient(135deg, #FFF3F6, #F0FAF4); border-radius: 22px; padding: 34px; margin-top: 28px; }
+.ig-answer h4 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 16px; }
+.ig-answer p  { font-size: 15px; color: var(--ink-mid); line-height: 1.85; font-weight: 500; margin-bottom: 12px; }
+.ig-answer strong { color: var(--ink); }
+
+/* FOOTER */
+.footer { background: linear-gradient(150deg, var(--mint-pale), var(--blush-pale), var(--lav-pale)); text-align: center; padding: 60px 28px 48px; border-top: 1px solid #EDE8F5; }
+.footer-emojis { font-size: 48px; margin-bottom: 14px; }
+.footer h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--ink); margin-bottom: 8px; }
+.footer .tagline { font-family: 'Dancing Script', cursive; font-size: 22px; color: var(--blush); margin-bottom: 8px; }
+.footer p { font-size: 14px; color: var(--ink-soft); font-weight: 500; line-height: 1.8; }
+.footer-badge { display: inline-block; background: var(--gold-light); color: var(--gold); border: 2px solid #F0D060; padding: 10px 28px; border-radius: 30px; font-weight: 700; font-size: 14px; margin-top: 20px; }
+
+@media(max-width:580px){ .section { padding: 48px 0 40px; } }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="password-screen">
+  <div class="pw-card">
+    <div class="pw-emoji">🐸🔒🐼</div>
+    <h2>Owner Dashboard</h2>
+    <p>This page is just for you. Enter your password to access your business resources, marketing tips, and ready-to-post captions.</p>
+    <input class="pw-input" type="password" id="pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter') checkPw()">
+    <button class="pw-btn" onclick="checkPw()">🔓 Enter Dashboard</button>
+    <div class="pw-error" id="pw-error">❌ Incorrect password. Try again.</div>
+  </div>
+</div>
+
+<!-- OWNER CONTENT -->
+<div id="owner-content">
+
+  <div class="owner-header">
+    <h1>🐸🐼 Owner Dashboard</h1>
+    <p>Your private business resources — for your eyes only</p>
+  </div>
+
+  <div class="container">
+  <!-- ── LEARN ── -->
+
+  <section class="section" id="learn">
+    <span class="eyebrow em">Free Learning Resources</span>
+    <h2 class="section-title">How to Learn Gelatin Art for Free</h2>
+    <p class="lead">Whether you want to make your own or just understand the craft behind every cup, these free resources are where the best tutorials live. All of these are completely free to watch and learn from.</p>
+
+<div class="learn-grid">
+  <a href="https://youtube.com/results?search_query=3D+gelatin+art+flowers+tutorial" target="_blank" class="learn-card">
+    <div class="lc-platform">YouTube</div>
+    <div class="lc-title">3D Gelatin Flower Tutorials</div>
+    <div class="lc-desc">Search "3D gelatin art flowers" on YouTube. Dozens of free step by step videos, many in Spanish too. The best visual way to learn the syringe injection technique.</div>
+    <div class="lc-link">youtube.com → search "3D gelatin art flowers"</div>
+  </a>
+  <a href="https://youtube.com/results?search_query=gelatinas+artisticas+tutorial" target="_blank" class="learn-card lc-b">
+    <div class="lc-platform">YouTube en Español</div>
+    <div class="lc-title">Gelatinas Artísticas Tutorial</div>
+    <div class="lc-desc">Search "gelatinas artísticas tutorial" for Spanish language tutorials. Many talented creators share complete beginner to advanced techniques at no cost.</div>
+    <div class="lc-link">youtube.com → "gelatinas artísticas tutorial"</div>
+  </a>
+  <a href="https://www.tiktok.com/search?q=gelatin+art+tutorial" target="_blank" class="learn-card lc-l">
+    <div class="lc-platform">TikTok</div>
+    <div class="lc-title">Short Form Technique Videos</div>
+    <div class="lc-desc">TikTok is packed with quick gelatin art clips. Watch the syringe technique, see mosaic cup assembly, and get inspired by creators who share their entire process for free.</div>
+    <div class="lc-link">tiktok.com → search "gelatin art tutorial"</div>
+  </a>
+  <a href="https://www.pinterest.com/search/pins/?q=gelatin+art" target="_blank" class="learn-card lc-p">
+    <div class="lc-platform">Pinterest</div>
+    <div class="lc-title">Design Inspiration & Visual Ideas</div>
+    <div class="lc-desc">Pinterest is the best place to find color combination ideas, theme inspiration, and new designs to try. Save your favorite looks as a personal mood board for future orders.</div>
+    <div class="lc-link">pinterest.com → search "gelatin art"</div>
+  </a>
+  <a href="https://www.facebook.com/groups/search/results/?q=gelatin+art" target="_blank" class="learn-card lc-g">
+    <div class="lc-platform">Facebook Groups</div>
+    <div class="lc-title">Gelatin Art Community Groups</div>
+    <div class="lc-desc">Search "gelatin art" in Facebook Groups to find communities of makers sharing tips, troubleshooting, and free tutorials. Very welcoming to beginners and full of helpful advice.</div>
+    <div class="lc-link">facebook.com/groups → search "gelatin art"</div>
+  </a>
+  <a href="https://www.instagram.com/explore/tags/gelatinart/" target="_blank" class="learn-card">
+    <div class="lc-platform">Instagram</div>
+    <div class="lc-title">Follow #GelatinArt</div>
+    <div class="lc-desc">The hashtag #gelatinart and #gelatinasartisticas on Instagram are full of creators who post their work. Many reply to comments and share tips. Great for seeing what sells and what inspires people.</div>
+    <div class="lc-link">instagram.com → #gelatinart</div>
+  </a>
+</div>
+
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── PROMOTE & IG GUIDE ── -->
+
+  <section class="section" id="promote">
+    <span class="eyebrow el">Marketing & Promotion</span>
+    <h2 class="section-title">Where and How to Promote</h2>
+    <p class="lead">You asked the right question. Instagram is absolutely the best starting point and then expanding to Facebook is how you reach your Escondido community fast. Here is exactly how to do it.</p>
+
+<div class="ig-answer">
+  <h4>📱 Yes, Instagram Is the Right Place to Start</h4>
+  <p>Instagram is the single best platform for a gelatin art business because the product is <strong>visually stunning</strong> and Instagram is built for beautiful images and short videos. When someone watches a slow pour video or sees a flower being injected petal by petal, they stop scrolling. That is how you build an audience and get orders.</p>
+  <p>Start your Instagram page at <strong>@thefrogandthepanda</strong>. Post product videos, share Mia and Logan's story, and use the Reels feature to reach new people in Escondido who don't follow you yet. Then take that exact same content and share it everywhere below.</p>
+</div>
+
+<div class="promote-grid" style="margin-top:24px;">
+  <div class="promote-card">
+    <div class="promote-icon">📸</div>
+    <div class="promote-platform">Primary Platform</div>
+    <div class="promote-title">Instagram</div>
+    <div class="promote-body">Create your account at instagram.com. Post videos of your gelatin being made, photos of finished cups, and Mia and Logan's story. Use Reels for maximum reach to new people. Add this page link to your bio so people can place orders directly.</div>
+  </div>
+  <div class="promote-card">
+    <div class="promote-icon">🎵</div>
+    <div class="promote-platform">Viral Reach</div>
+    <div class="promote-title">TikTok</div>
+    <div class="promote-body">Post the exact same videos from Instagram to TikTok. The gelatin flower injection video style goes viral on TikTok regularly. Your story combined with beautiful art is exactly what TikTok audiences respond to. Create at tiktok.com.</div>
+  </div>
+  <div class="promote-card">
+    <div class="promote-icon">👥</div>
+    <div class="promote-platform">Local Community</div>
+    <div class="promote-title">Facebook Groups</div>
+    <div class="promote-body">Search for these groups on Facebook and join them: "Escondido community", "Escondido buy sell trade", "North County San Diego moms", your church parent group, and your children's school parent group. Post your story and a beautiful photo in each one.</div>
+  </div>
+  <div class="promote-card">
+    <div class="promote-icon">💬</div>
+    <div class="promote-platform">Direct Sharing</div>
+    <div class="promote-title">WhatsApp & Nextdoor</div>
+    <div class="promote-body">Send your Instagram link to your personal contacts on WhatsApp and ask them to share it. Also create a free account on Nextdoor.com and post in your Escondido neighborhood. Nextdoor is specifically for local community buying and selling.</div>
+  </div>
+  <div class="promote-card">
+    <div class="promote-icon">🙏</div>
+    <div class="promote-platform">Highest Trust Community</div>
+    <div class="promote-title">Your Church Community</div>
+    <div class="promote-body">Your church community is one of the most powerful networks you have. Share your story in your church's Facebook group or WhatsApp chat. People who share your faith will be deeply moved by your story and eager to support Mia and Logan.</div>
+  </div>
+  <div class="promote-card">
+    <div class="promote-icon">🌐</div>
+    <div class="promote-platform">Free Link in Bio Tool</div>
+    <div class="promote-title">Linktree (Free)</div>
+    <div class="promote-body">Create a free account at linktr.ee and add links to this page, your Instagram, your GoFundMe, your Venmo, and your menu. Then put that one Linktree link in your Instagram bio so every visitor can easily find everything in one tap.</div>
+  </div>
+</div>
+
+<div style="margin-top:36px;">
+  <span class="eyebrow eb" style="display:block;margin-bottom:16px;">Ready to Copy Captions</span>
+  <h3 style="font-family:'Playfair Display',serif;font-size:clamp(20px,3.5vw,30px);margin-bottom:20px;">Post These Today 📱</h3>
+
+  <div class="caption-box">
+    <div class="cap-label ct-m" style="color:var(--mint);">Instagram Reels Caption</div>
+    <div class="cap-text">"We all felt completely fine. Mia looked healthy. But God placed something on my heart and I listened. What we found underneath changed everything. She has scoliosis, a bone condition developing silently in her spine, with zero symptoms. My son Logan's bone pain after all his time playing soccer was what led us to look deeper for everyone. I am so grateful we found it in time. Now I make these cups by hand and every dollar goes to her treatments. If this speaks to you as a parent, please ask your doctor for a scoliosis screening. You might be so glad you did. 🐸🐼💕 DM to order. Escondido, CA. @thefrogandthepanda #TheFrogAndThePanda #ScoliosisAwareness #HandmadeWithLove"</div>
+  </div>
+  <div class="caption-box cb-b">
+    <div class="cap-label" style="color:var(--blush);">Facebook Community Group Post</div>
+    <div class="cap-text">"Escondido families, I want to share something close to my heart. I started making handcrafted gelatin art from home because my daughter Mia needs ongoing treatments for scoliosis that was discovered through God's guidance and her brother Logan's bone pain from playing soccer. Regular doctors never caught it. She had no symptoms. And yet it was there. 100% of every order I make goes to her care. These cups are genuinely beautiful and every purchase helps a local child heal. DM me or visit the link to order or learn more. 🐸🐼🙏"</div>
+  </div>
+  <div class="caption-box cb-l">
+    <div class="cap-label" style="color:var(--lav);">WhatsApp or Text Message</div>
+    <div class="cap-text">"Hey! I wanted to share something with you. A friend of mine in Escondido discovered her daughter had a silent bone condition called scoliosis thanks to her son's soccer injuries leading them to seek deeper care. She makes stunning handcrafted gelatin art and 100% goes to their treatment. The cups are gorgeous. Check out @thefrogandthepanda on Instagram and share if you can. It means the world to her family."</div>
+  </div>
+</div>
+
+  </section>
+
+</div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-emojis">🐸 🩷 🐼</div>
+    <h2>The Frog & The Panda</h2>
+    <div class="tagline">"Sweet art. Real love. One cup at a time."</div>
+    <p>Your private owner dashboard<br><em>Through God's guidance, for Mia and Logan 🙏</em></p>
+    <div class="footer-badge">💕 100% of Every Sale Goes to Their Care</div>
+  </footer>
+
+</div>
+
+<script>
+function checkPw() {
+  var val = document.getElementById('pw-input').value;
+  if (val === 'thefrogand20') {
+    document.getElementById('password-screen').style.display = 'none';
+    document.getElementById('owner-content').style.display = 'block';
+  } else {
+    document.getElementById('pw-error').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+</script>
+
+</body>
+</html>
